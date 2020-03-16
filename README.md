@@ -1,6 +1,11 @@
 # Duktape 使用指北
 
-最近一年非常多的使用 Duktape，确实是个好东西，但中文资料实在太少；
+- #### 从全局对象说起
+
+  1. [在 C 中定义一个 js 全局变量？](1.globals/1.define_a_global_variable_in_c.md)
+  2. 
+
+
 
 # 参考：
 * https://duktape.org/
