@@ -2,7 +2,7 @@
 
 - #### 从全局对象说起
 
-  1. [在 C 中定义一个 js 全局变量？](1.globals/1.define_a_global_variable_in_c.md)
+  1. [在 C 中定义一个 js 全局对象](globals/define_a_global_object_in_c.md)
   2. 
 
 
