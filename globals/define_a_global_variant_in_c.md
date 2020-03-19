@@ -1,6 +1,6 @@
 # 在 c 中定义一个 js 全局常/变量
 
-- ### 定义一个常量
+- ### 定义常量
 
 ```c
 // 定义一个全局的 AppName 常量，在 js 中不可修改
@@ -50,5 +50,43 @@ print("Version(new): " + Major + "." + Minor);
 print("Full version: " + Version);
 Version = "v" + Version;
 print("Full version(new): " + Version);
+```
+
+- ### 绑定本地 c 变量的全局变量
+
+```c
+// 定义一个本地 c 变量
+int		native_var = 0;
+
+// 当 js 取变量值时，返回本地 c 变量的值
+duk_ret_t duk_globals_function_get_native_var(duk_context *ctx)
+{
+	duk_push_int(ctx, native_var);
+
+	return 1;
+}
+
+// 当 js 为变量赋值时，更新本地 c 变量的值
+duk_ret_t duk_globals_function_set_native_var(duk_context *ctx)
+{
+	native_var = duk_to_int(ctx, 0);
+
+	return 0;
+}
+
+// 定义 js 全局变量的另一种方式，允许 js 直接访问本地 c 变量
+// var NatvieVar;
+duk_push_global_object(ctx);
+duk_push_string(ctx, "NativeVar");
+duk_push_c_function(ctx, duk_globals_function_get_native_var, 0);
+duk_push_c_function(ctx, duk_globals_function_set_native_var, 1);
+duk_def_prop(ctx, -4, DUK_DEFPROP_HAVE_GETTER | DUK_DEFPROP_HAVE_SETTER);
+```
+​	在 js 中调用：
+```javascript
+// 访问 c 定义的全局常量，并尝试修改常量值
+print("NativeVar: " + NativeVar);
+NativeVar += 10;
+print("NativeVar(new): " + NativeVar);
 ```
 

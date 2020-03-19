@@ -18,6 +18,11 @@ print("Full version: " + Version);
 Version = "v" + Version;
 print("Full version(new): " + Version);
 
+print("NativeVar: " + NativeVar);
+NativeVar += 10;
+print("NativeVar(new): " + NativeVar);
+
+
 // 访问 c 定义的全局数组，并尝试添加值
 Array1.push(1000);
 

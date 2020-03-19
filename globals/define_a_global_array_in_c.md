@@ -1,6 +1,6 @@
 # 在 c 中定义一个 js 全局数组
 
-- ### 定义一个 int 数组
+- ### 定义 int 数组
 
 ```c
 // 定义一个全局的 int 数组
@@ -25,7 +25,7 @@ for(var i = 0; i < Array1.length; i ++) {
 	print("Array1[" + i + "]: " + Array1[i]);
 }
 ```
-- ### 定义一个 string 数组
+- ### 定义 string 数组
 
 ```c
 // 定义一个全局的 string 数组
@@ -50,7 +50,7 @@ Array2.push(".");
 
 print("Array2: " + JSON.stringify(Array2));
 ```
-- ### 定义一个数组的数组
+- ### 定义数组的数组
 
 ```c
 // 定义一个全局的数组数组
@@ -98,7 +98,7 @@ for(var i = 0; i < Array3.length; i ++) {
 }
 ```
 
-- ### 定义一个对象数组
+- ### 定义对象数组
 
 ```c
 // 定义一个全局的对象数组

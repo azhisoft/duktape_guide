@@ -12,7 +12,7 @@
 
 duk_ret_t duk_globals_function_say_hello(duk_context *ctx)
 {
-	std::cout << "Hello, I am a sample." << std::endl;
+	std::cout << "Hello, I am sample." << std::endl;
 
 	return 0;
 }
@@ -23,6 +23,25 @@ duk_ret_t duk_globals_function_print(duk_context *ctx)
 	const char*	text = duk_safe_to_string(ctx, 0);
 
 	std::cout << text << std::endl;
+
+	return 0;
+}
+
+// 定义一个本地 c 变量
+int		native_var = 0;
+
+// 当 js 取变量值时，返回本地 c 变量的值
+duk_ret_t duk_globals_function_get_native_var(duk_context *ctx)
+{
+	duk_push_int(ctx, native_var);
+
+	return 1;
+}
+
+// 当 js 为变量赋值时，更新本地 c 变量的值
+duk_ret_t duk_globals_function_set_native_var(duk_context *ctx)
+{
+	native_var = duk_to_int(ctx, 0);
 
 	return 0;
 }
@@ -70,6 +89,14 @@ void duk_globals_init(duk_context* ctx)
 	// var Version = "1.0.0.0";
 	duk_push_string(ctx, "1.0.0.0");
 	duk_put_global_string(ctx, "Version");
+
+	// 定义 js 全局变量的另一种方式，允许 js 直接访问本地 c 变量
+	// var NatvieVar;
+	duk_push_global_object(ctx);
+	duk_push_string(ctx, "NativeVar");
+	duk_push_c_function(ctx, duk_globals_function_get_native_var, 0);
+	duk_push_c_function(ctx, duk_globals_function_set_native_var, 1);
+	duk_def_prop(ctx, -4, DUK_DEFPROP_HAVE_GETTER | DUK_DEFPROP_HAVE_SETTER);
 
 	// 定义一个全局的 int 数组
 	// var Array1 = [ 100, 157, 54 ];
