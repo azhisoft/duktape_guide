@@ -4,6 +4,7 @@
 
 ```c
 // 定义一个全局的 AppName 常量，在 js 中不可修改
+// const AppName = "sample";
 duk_push_global_object(ctx);
 duk_push_string(ctx, "AppName");
 duk_push_string(ctx, "sample");
@@ -21,18 +22,21 @@ print("AppName(new): " + AppName);
 
 ```c
 // 定义一个全局的 Major 变量，可在 js 中修改变量值
+// var Major = 1;
 duk_push_global_object(ctx);
 duk_push_string(ctx, "Major");
 duk_push_int(ctx, 1);
 duk_def_prop(ctx, -3, DUK_DEFPROP_HAVE_VALUE | DUK_DEFPROP_HAVE_WRITABLE | DUK_DEFPROP_WRITABLE);
 
 // 定义一个全局的 Minor 变量，可在 js 中修改变量值
+// var Minor = 0;
 duk_push_global_object(ctx);
 duk_push_string(ctx, "Minor");
 duk_push_int(ctx, 0);
 duk_def_prop(ctx, -3, DUK_DEFPROP_HAVE_VALUE | DUK_DEFPROP_HAVE_WRITABLE | DUK_DEFPROP_WRITABLE);
 
 // 定义全局变量的另一种便捷方式
+// var Version = "1.0.0.0";
 duk_push_string(ctx, "1.0.0.0");
 duk_put_global_string(ctx, "Version");
 ```

@@ -4,6 +4,7 @@
 
 ```c
 // 定义一个全局的 int 数组
+// var Array1 = [ 100, 157, 54 ];
 duk_int_t	idx = duk_push_array(ctx);
 
 duk_push_int(ctx, 100);
@@ -28,6 +29,7 @@ for(var i = 0; i < Array1.length; i ++) {
 
 ```c
 // 定义一个全局的 string 数组
+// var Array2 = [ "Hello", ",", "array" ];
 duk_push_global_object(ctx);
 duk_int_t	idx = duk_push_array(ctx);
 
@@ -52,6 +54,10 @@ print("Array2: " + JSON.stringify(Array2));
 
 ```c
 // 定义一个全局的数组数组
+// var Array3 = [
+//     [ "Hello", ",", "sub", "array", "." ],
+//     [ 100, 157, 54 ]
+// ];
 duk_push_global_object(ctx);
 duk_int_t	idx = duk_push_array(ctx);
 
@@ -96,6 +102,10 @@ for(var i = 0; i < Array3.length; i ++) {
 
 ```c
 // 定义一个全局的对象数组
+// var Array4 = [
+//     { id: 1, name: "duktape", version: "2.3.0" },
+//     { id: 2, name: "v8", version: "1.0" }
+// ];
 duk_push_global_object(ctx);
 duk_int_t	idx = duk_push_array(ctx);
 
@@ -112,7 +122,7 @@ duk_put_prop_index(ctx, idx, 0);
 
 sidx = duk_push_object(ctx);
 
-duk_push_int(ctx, 1);
+duk_push_int(ctx, 2);
 duk_put_prop_string(ctx, sidx, "id");
 duk_push_string(ctx, "v8");
 duk_put_prop_string(ctx, sidx, "name");

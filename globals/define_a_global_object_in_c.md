@@ -4,6 +4,11 @@
 
 ```c
 // 定义一个全局的简单对象
+// var Object1 = {
+//     id: 1,
+//     name: "duktape",
+//     version: "2.3.0"
+// };
 duk_push_global_object(ctx);
 duk_int_t	idx = duk_push_object(ctx);
 
@@ -29,6 +34,17 @@ for(var n in Object1) {
 
 ```c
 // 定义一个全局的复合对象
+// var Object1 = {
+//     id: 1,
+//     name: "duktape",
+//     version: "2.3.0",
+//     supportedOS: [ "Windows", "Linux", "MacOS", "RTOS" ],
+//     latestVersion: {
+//         id: 1,
+//         name: "duktape",
+//         version: "2.3.0"
+//     }
+// };
 duk_push_global_object(ctx);
 duk_int_t	idx = duk_push_object(ctx);
 
