@@ -1,6 +1,6 @@
 # 在 c 中定义一个 js 全局对象
 
-- #### 定义一个函数
+- ### 定义一个函数
 
 ```c
 // 定义一个全局的 print 函数，可在 js 中调用本地 c 函数
@@ -13,7 +13,7 @@ duk_put_global_string(ctx, "print");
 print("Hello, Duktape.");
 ```
 
-- #### 定义一个常量
+- ### 定义一个常量
 
 ```c
 // 定义一个全局的 AppName 常量，在 js 中不可修改
@@ -30,7 +30,7 @@ AppName = "Hello, " + AppName;
 print("AppName(new): " + AppName);
 ```
 
-- #### 定义一个变量
+- ### 定义一个变量
 ```c
 // 定义一个全局的 Major 变量，可在 js 中修改变量值
 duk_push_global_object(ctx);
@@ -60,7 +60,7 @@ Version = "v" + Version;
 print("Full version(new): " + Version);
 ```
 
-- #### 定义一个数组
+- ### 定义一个数组
 ```c
 // 定义一个全局的 print 函数，可在 js 中调用本地 c 函数
 duk_push_c_function(ctx, duk_globals_function_print, 1);
@@ -72,7 +72,7 @@ duk_put_global_string(ctx, "print");
 print("Hello, Duktape.");
 ```
 
-- #### 定义一个对象
+- ### 定义一个对象
 ```c
 // 定义一个全局的 print 函数，可在 js 中调用本地 c 函数
 duk_push_c_function(ctx, duk_globals_function_print, 1);
