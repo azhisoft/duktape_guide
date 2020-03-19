@@ -34,7 +34,7 @@ void duk_globals_init(duk_context* ctx)
 	duk_put_prop_string(ctx, -2, "sayHello");
 	duk_pop(ctx);
 
-	// 定义一个全局的 print 函数，可在 js 中调用本地 c 函数
+	// 快速定义一个全局的 print 函数
 	duk_push_c_function(ctx, duk_globals_function_print, 1);
 	duk_put_global_string(ctx, "print");
 
