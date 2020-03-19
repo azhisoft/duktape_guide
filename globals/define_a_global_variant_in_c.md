@@ -75,7 +75,7 @@ duk_ret_t duk_globals_function_set_native_var(duk_context *ctx)
 }
 
 // 定义 js 全局变量的另一种方式，允许 js 直接访问本地 c 变量
-// var NatvieVar;
+// var NativeVar;
 duk_push_global_object(ctx);
 duk_push_string(ctx, "NativeVar");
 duk_push_c_function(ctx, duk_globals_function_get_native_var, 0);
