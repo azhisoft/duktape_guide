@@ -10,6 +10,7 @@
 #include "encoding.h"
 
 #include "define_a_global_object_in_c.h"
+#include "define_global_function_in_c.h"
 
 
 bool read_file_text(const char* filename, std::string& text)
@@ -44,6 +45,7 @@ bool read_file_text(const char* filename, std::string& text)
 void init_context(duk_context* ctx)
 {
 	duk_globals_init(ctx);
+	duk_function_init(ctx);
 }
 
 int main(int argc, char **argv)

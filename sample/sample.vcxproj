@@ -154,6 +154,7 @@
   <ItemGroup>
     <ClInclude Include="autoalloc.h" />
     <ClInclude Include="define_a_global_object_in_c.h" />
+    <ClInclude Include="define_global_function_in_c.h" />
     <ClInclude Include="duktape_2.3.0\duktape.h" />
     <ClInclude Include="duktape_2.3.0\duk_config.h" />
     <ClInclude Include="encoding.h" />

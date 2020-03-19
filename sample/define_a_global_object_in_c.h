@@ -10,13 +10,6 @@
 #include "duktape_2.3.0/duktape.h"
 
 
-duk_ret_t duk_globals_function_say_hello(duk_context *ctx)
-{
-	std::cout << "Hello, I am sample." << std::endl;
-
-	return 0;
-}
-
 // 定义一个本地 c 函数，用于打印信息到标准输出
 duk_ret_t duk_globals_function_print(duk_context *ctx)
 {
@@ -48,15 +41,6 @@ duk_ret_t duk_globals_function_set_native_var(duk_context *ctx)
 
 void duk_globals_init(duk_context* ctx)
 {
-	// 定义一个全局的 sayHello 函数
-	// function sayHello() {
-	//     [native code]
-	// }
-	duk_push_global_object(ctx);
-	duk_push_c_function(ctx, duk_globals_function_say_hello, 0);
-	duk_put_prop_string(ctx, -2, "sayHello");
-	duk_pop(ctx);
-
 	// 快速定义一个全局的 print 函数
 	// function print(text) {
 	//     [native code]
