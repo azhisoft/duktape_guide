@@ -8,7 +8,7 @@ duk_ret_t duk_globals_function_print(duk_context *ctx)
 {
 	const char*	text = duk_safe_to_string(ctx, 0);
 
-    std::cout << text << std::endl;
+	std::cout << text << std::endl;
 
 	return 0;
 }
