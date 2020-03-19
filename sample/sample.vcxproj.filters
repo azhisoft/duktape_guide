@@ -30,6 +30,12 @@
     <ClInclude Include="define_a_global_object_in_c.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="autoalloc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="encoding.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">

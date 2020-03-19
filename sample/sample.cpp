@@ -7,6 +7,8 @@
 
 #include <tchar.h>
 
+#include "encoding.h"
+
 #include "define_a_global_object_in_c.h"
 
 
@@ -61,6 +63,10 @@ int main(int argc, char **argv)
 
 	if (!script.empty())
 	{
+		CStrEncoding	se;
+
+		script = se.AnsiToUtf8(script.c_str());
+
 		duk_context	*ctx = duk_create_heap_default();
 
 		if (ctx)
