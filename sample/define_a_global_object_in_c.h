@@ -3,8 +3,6 @@
 
 #include "pch.h"
 
-#include <iostream>
-
 #include <tchar.h>
 
 #include "duktape_2.3.0/duktape.h"
@@ -15,7 +13,7 @@ duk_ret_t duk_globals_function_print(duk_context *ctx)
 {
 	const char*	text = duk_safe_to_string(ctx, 0);
 
-	std::cout << text << std::endl;
+	printf("%s\n", text);
 
 	return 0;
 }
